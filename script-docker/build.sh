@@ -6,7 +6,7 @@ Docker_Image_Name="anurag-assignment-2-website"
 
 #moving to the loction where the docker file is there
 cd ..
-cd reactjs-demo/build/
+cd reactjs-demo/
 
 #Command for building docker images
 docker build -t $Docker_Image_Name .
