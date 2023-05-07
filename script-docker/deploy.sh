@@ -1,23 +1,18 @@
 #!/bin/bash
 
-# Setting old and new image name, where old image name is  one that is created using build.sh
-New_Image_Name="anuragvarshney03/assignment-02"
-Old_Image_Name="anurag-assignment-2-website"
+# Getting image name and tag name
+Image_Name="anurag-assignment-2-website"
 
 #version tag
-New_Image_Tag="v1"
-Old_Image_Tag="latest"
-
-# Tag the image
-docker tag $Old_Image_Name:$Old_Image_Tag $New_Image_Name:$New_Image_Tag 
-
-# Push the image to Docker Hub
-docker push $New_Image_Name:$New_Image_Tag
+Image_Tag="latest"
 
 
-#Checking execution of docker push command
+# Running the container
+docker run -d -p 80:80 $Image_Name:$Image_Tag
+
+#Checking if container is running
 if [ $? -eq 0 ]; then
-  echo "*****************Successfully pushed image **************"
+  echo "*****************Successfully started container **************"
 else
-  echo "************Failed to push Docker image**********************"
+  echo "************Failed to start container**********************"
 fi
